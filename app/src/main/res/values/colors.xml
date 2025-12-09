@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF6200EE</color>
+    <color name="colorPrimaryDark">#FF3700B3</color>
+
+    <color name="my_light_primary">#FF6200EE</color>
+
+    <color name="colorAccent">#FF03DAC5</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <!-- Warna button purple yang sesuai preview -->
+    <color name="purple_button">#8B5CF6</color>
+    <color name="green_paid">#4CAF50</color>
+    <color name="orange_pending">#FF9800</color>
+</resources>

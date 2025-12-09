@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.projectwmp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- For WhatsApp Integration -->
+    <queries>
+        <package android:name="com.whatsapp" />
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ProjectWMP">
+
+        <!-- ========================= -->
+        <!-- AUTH ACTIVITIES           -->
+        <!-- ========================= -->
+
+        <!-- Splash Activity as Launcher -->
+        <activity
+            android:name=".auth.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.ProjectWMP.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Login Activity -->
+        <activity
+            android:name=".auth.LoginActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Register Activity -->
+        <activity
+            android:name=".auth.RegisterActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- ========================= -->
+        <!-- CUSTOMER ACTIVITIES       -->
+        <!-- ========================= -->
+
+        <!-- User Home Activity -->
+        <activity
+            android:name=".customer.UserHomeActivity"
+            android:exported="false"
+            android:label="Home" />
+
+        <!-- Concert Detail Activity -->
+        <activity
+            android:name=".customer.ConcertDetailActivity"
+            android:exported="false"
+            android:label="Concert Details"
+            android:parentActivityName=".customer.UserHomeActivity" />
+
+        <!-- Booking Activity -->
+        <activity
+            android:name=".customer.BookingActivity"
+            android:exported="false"
+            android:label="Book Ticket"
+            android:parentActivityName=".customer.ConcertDetailActivity"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Payment Confirmation Activity -->
+        <activity
+            android:name=".customer.PaymentConfirmationActivity"
+            android:exported="false"
+            android:label="Payment Confirmation" />
+
+        <!-- Ticket Detail Activity -->
+        <activity
+            android:name=".customer.TicketDetailActivity"
+            android:exported="false"
+            android:label="Your Ticket" />
+
+        <!-- Booking History Activity -->
+        <activity
+            android:name=".customer.BookingHistoryActivity"
+            android:exported="false"
+            android:label="My Bookings"
+            android:parentActivityName=".customer.UserHomeActivity" />
+
+        <!-- User Profile Activity -->
+        <activity
+            android:name=".customer.UserProfileActivity"
+            android:exported="false"
+            android:label="My Profile"
+            android:parentActivityName=".customer.UserHomeActivity" />
+
+        <!-- Edit Profile Activity -->
+        <activity
+            android:name=".customer.EditProfileActivity"
+            android:exported="false"
+            android:label="Edit Profile"
+            android:parentActivityName=".customer.UserProfileActivity"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Change Password Activity -->
+        <activity
+            android:name=".customer.ChangePasswordActivity"
+            android:exported="false"
+            android:label="Change Password"
+            android:parentActivityName=".customer.UserProfileActivity"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- ========================= -->
+        <!-- ADMIN ACTIVITIES          -->
+        <!-- ========================= -->
+
+        <!-- Admin Dashboard Activity -->
+        <activity
+            android:name=".admin.AdminDashboardActivity"
+            android:exported="false"
+            android:label="Admin Dashboard" />
+
+        <!-- Add/Edit Concert Activity -->
+        <activity
+            android:name=".admin.AddEditConcertActivity"
+            android:exported="false"
+            android:label="Manage Concert"
+            android:parentActivityName=".admin.AdminDashboardActivity"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Manage Banners Activity -->
+        <activity
+            android:name=".admin.ManageBannersActivity"
+            android:exported="false"
+            android:label="Manage Banners"
+            android:parentActivityName=".admin.AdminDashboardActivity" />
+
+        <!-- Add/Edit Banner Activity -->
+        <activity
+            android:name=".admin.AddEditBannerActivity"
+            android:exported="false"
+            android:label="Manage Banner"
+            android:parentActivityName=".admin.ManageBannersActivity"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Manage Bookings Activity -->
+        <activity
+            android:name=".admin.ManageBookingsActivity"
+            android:exported="false"
+            android:label="Manage Bookings"
+            android:parentActivityName=".admin.AdminDashboardActivity" />
+
+    </application>
+
+</manifest>

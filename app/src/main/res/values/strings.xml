@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Melostage</string>
+
+    <string-array name="music_genres_array">
+        <item>Pilih Genre Musik</item> <item>Pop</item>
+        <item>Rock</item>
+        <item>Jazz</item>
+        <item>EDM</item>
+        <item>Hip-Hop</item>
+        <item>K-pop</item>
+        <item>Indie</item>
+        <item>Classical</item>
+        <item>Retro-Horror</item>
+    </string-array>
+
+    <string-array name="event_status_array">
+        <item>Upcoming</item>
+        <item>Sold Out</item>
+        <item>Cancelled</item>
+    </string-array>
+    <string name="no_banners_yet">No banners found yet.</string>
+    <string name="add_banner_desc">Add Banner</string>
+
+    <string name="banner_image_desc">Banner image preview</string>
+    <string name="title_required_error">Banner Title is required</string>
+    <string name="desc_optional">Description (optional)</string>
+    <string name="image_url_hint">Image URL (Google Drive or direct link)</string>
+    <string name="priority_hint">Priority (lower number = higher priority)</string>
+    <string name="tip_google_drive">💡 Tip: Copy link sharing Google Drive,  will Automatic convert to URL.</string>
+    <string name="preview_image">Preview Image</string>
+    <string name="error_failed_to_load_ticket">Failed to load ticket details.</string>
+    <string name="error_failed_to_generate_qr">Failed to generate QR Code.</string>
+    <string name="toast_ticket_saved">Ticket saved to gallery!</string>
+
+</resources>

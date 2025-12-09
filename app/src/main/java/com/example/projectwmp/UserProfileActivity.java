@@ -1,0 +1,64 @@
+package com.example.projectwmp;
+
+import android.os.Bundle;
+import android.widget.TextView;
+import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+public class UserProfileActivity extends AppCompatActivity {
+
+    private TextView tvFullName, tvEmail, tvPhoneNumber, tvPreferredGenre;
+    private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_user_profile);
+
+        mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        tvFullName = findViewById(R.id.tv_full_name);
+        tvEmail = findViewById(R.id.tv_email);
+        tvPhoneNumber = findViewById(R.id.tv_phone_number);
+        tvPreferredGenre = findViewById(R.id.tv_preferred_genre);
+
+        loadUserProfile();
+    }
+
+    private void loadUserProfile() {
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            String userId = currentUser.getUid();
+
+            mDatabase.child("users").child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        User user = snapshot.getValue(User.class);
+                        if (user != null) {
+                            tvFullName.setText("Name: " + user.getFullName());
+                            tvEmail.setText("Email: " + user.getEmail());
+                            tvPhoneNumber.setText("Phone: " + user.getPhoneNumber());
+                            tvPreferredGenre.setText("Preferred Genre: " + user.getPreferredGenre());
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(UserProfileActivity.this, "Failed to load profile", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+}
